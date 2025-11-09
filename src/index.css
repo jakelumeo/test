@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Colors - Clean White Theme */
+    --background: 0 0% 100%; /* Pure White */
+    --foreground: 220 14% 11%; /* Dark Gray */
+
+    /* Lumeo Brand Colors - Whole Foods Green */
+    --coral: 157 100% 21%; /* #00674B - Whole Foods Green */
+    --coral-foreground: 0 0% 100%; /* White */
+    --mint: 142 71% 45%; /* Mint Green accent */
+    --mint-foreground: 0 0% 100%; /* White */
+    --gray-light: 220 9% 46%; /* Subtle gray */
+    --gray-muted: 220 13% 69%; /* More muted gray */
+
+    /* Card and Border */
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 220 14% 11%; /* Dark text on cards */
+    --border: 220 13% 91%; /* Light border */
+    --input: 220 13% 91%; /* Input border */
+
+    /* Standard Shadcn Variables */
+    --primary: 157 100% 21%; /* Whole Foods Green */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 220 14% 96%; /* Light gray */
+    --secondary-foreground: 220 9% 46%; /* Dark text */
+    --muted: 220 14% 96%; /* Very light gray */
+    --muted-foreground: 220 9% 46%; /* Gray text */
+    --accent: 157 100% 21%; /* Whole Foods Green accent */
+    --accent-foreground: 0 0% 100%; /* White */
+    --destructive: 0 84% 60%; /* Red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --popover: 0 0% 100%; /* White */
+    --popover-foreground: 220 14% 11%; /* Dark text */
+    --ring: 157 100% 21%; /* Whole Foods Green ring */
+
+    /* Design System Tokens */
+    --gradient-coral: linear-gradient(
+      135deg,
+      hsl(var(--coral)),
+      hsl(157 100% 25%)
+    );
+    --gradient-subtle: linear-gradient(
+      180deg,
+      hsl(var(--background)),
+      hsl(var(--muted))
+    );
+    --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-coral: 0 10px 30px -10px hsl(var(--coral) / 0.2);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 14% 11%;
+    --foreground: 0 0% 100%;
+    --card: 220 13% 16%;
+    --card-foreground: 0 0% 100%;
+    --border: 220 13% 26%;
+    --input: 220 13% 26%;
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 9% 65%;
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 0 0% 100%;
+    --popover: 220 13% 16%;
+    --popover-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      system-ui, sans-serif;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hero text gradient */
+  .text-gradient-coral {
+    background: linear-gradient(135deg, hsl(var(--coral)), hsl(157 100% 25%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Coral circle backdrop */
+  .coral-circle {
+    background: radial-gradient(
+      circle,
+      hsl(var(--coral) / 0.8) 0%,
+      hsl(var(--coral) / 0.4) 50%,
+      transparent 100%
+    );
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+}
